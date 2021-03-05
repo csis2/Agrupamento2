@@ -1,0 +1,6 @@
+C:\agrupamento2\bin\Debug\agrupamento2.exe.config
+C:\agrupamento2\bin\Debug\agrupamento2.exe
+C:\agrupamento2\bin\Debug\agrupamento2.pdb
+C:\agrupamento2\obj\Debug\agrupamento2.exe
+C:\agrupamento2\obj\Debug\agrupamento2.pdb
+C:\agrupamento2\obj\Debug\agrupamento2.csproj.CoreCompileInputs.cache
