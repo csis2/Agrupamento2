@@ -499,27 +499,22 @@ namespace agrupamento2
                     Console.WriteLine(cWay);
                     Console.WriteLine(cName2);
                     Console.WriteLine("----------------------------------");
-                    //oCmd3a.CommandText = "SELECT sraghosp2.id_municip,sraghosp2.co_uni_not,sraghosp2.id_unidade,sraghosp2.escala, COUNT (sraghosp2.id_unidade) as qtd GROUP BY sraghosp2.id_municip,sraghosp2.co_uni_not,sraghosp2.id_unidade,sraghosp2.escala where sraghosp2.intervalo <0 FROM c:\\agrupamento2\\data\\sraghosp2.dbf INTO TABLE scale_M0.dbf";
                     oCmd3a.CommandText = String.Format("SELECT {0}.id_municip,{0}.co_uni_not,{0}.id_unidade,{0}.escala, COUNT ({0}.id_unidade) as qtd GROUP BY {0}.id_municip,{0}.co_uni_not,{0}.id_unidade,{0}.escala where {0}.intervalo <0 FROM {1} INTO TABLE scale_M0.dbf", cName2, cWay);
                     oCmd3a.ExecuteNonQuery();
                     Console.WriteLine(DateTime.Now + "-OK");
                     Console.WriteLine(DateTime.Now + "-scale_0_1.dbf...");
-                    //oCmd3a.CommandText = "SELECT sraghosp2.id_municip,sraghosp2.co_uni_not,sraghosp2.id_unidade,sraghosp2.escala, COUNT (sraghosp2.id_unidade) as qtd GROUP BY sraghosp2.id_municip,sraghosp2.co_uni_not,sraghosp2.id_unidade,sraghosp2.escala where (sraghosp2.intervalo >=0  .and. sraghosp2.intervalo <= 1) FROM c:\\agrupamento2\\data\\sraghosp2.dbf INTO TABLE scale_0_1.dbf";
                     oCmd3a.CommandText = String.Format("SELECT {0}.id_municip,{0}.co_uni_not,{0}.id_unidade,{0}.escala, COUNT ({0}.id_unidade) as qtd GROUP BY {0}.id_municip,{0}.co_uni_not,{0}.id_unidade,{0}.escala where ({0}.intervalo >=0  .and. {0}.intervalo <= 1) FROM {1} INTO TABLE scale_0_1.dbf", cName2, cWay);
                     oCmd3a.ExecuteNonQuery();
                     Console.WriteLine(DateTime.Now + "-OK");
                     Console.WriteLine(DateTime.Now + "-scale_2_7.dbf...");
-                    //oCmd3a.CommandText = "SELECT sraghosp2.id_municip,sraghosp2.co_uni_not,sraghosp2.id_unidade,sraghosp2.escala, COUNT (sraghosp2.id_unidade) as qtd GROUP BY sraghosp2.id_municip,sraghosp2.co_uni_not,sraghosp2.id_unidade,sraghosp2.escala where (sraghosp2.intervalo >=2 .and. sraghosp2.intervalo <= 7) FROM c:\\agrupamento2\\data\\sraghosp2.dbf INTO TABLE scale_2_7.dbf";
                     oCmd3a.CommandText = String.Format("SELECT {0}.id_municip,{0}.co_uni_not,{0}.id_unidade,{0}.escala, COUNT ({0}.id_unidade) as qtd GROUP BY {0}.id_municip,{0}.co_uni_not,{0}.id_unidade,{0}.escala where ({0}.intervalo >=2  .and. {0}.intervalo <= 7) FROM {1} INTO TABLE scale_2_7.dbf", cName2, cWay);
                     oCmd3a.ExecuteNonQuery();
                     Console.WriteLine(DateTime.Now + "-OK");
                     Console.WriteLine(DateTime.Now + "-scale_8_14.dbf...");
-                    //oCmd3a.CommandText = "SELECT sraghosp2.id_municip,sraghosp2.co_uni_not,sraghosp2.id_unidade,sraghosp2.escala, COUNT (sraghosp2.id_unidade) as qtd GROUP BY sraghosp2.id_municip,sraghosp2.co_uni_not,sraghosp2.id_unidade,sraghosp2.escala where (sraghosp2.intervalo >= 8 .and. sraghosp2.intervalo <= 14) FROM c:\\agrupamento2\\data\\sraghosp2.dbf INTO TABLE scale_8_14.dbf";
                     oCmd3a.CommandText = String.Format("SELECT {0}.id_municip,{0}.co_uni_not,{0}.id_unidade,{0}.escala, COUNT ({0}.id_unidade) as qtd GROUP BY {0}.id_municip,{0}.co_uni_not,{0}.id_unidade,{0}.escala where ({0}.intervalo >=8  .and. {0}.intervalo <= 14) FROM {1} INTO TABLE scale_8_14.dbf", cName2, cWay);
                     oCmd3a.ExecuteNonQuery();
                     Console.WriteLine(DateTime.Now + "-OK");
                     Console.WriteLine(DateTime.Now + "-scale_M15.dbf...");
-                    //oCmd3a.CommandText = "SELECT sraghosp2.id_municip,sraghosp2.co_uni_not,sraghosp2.id_unidade,sraghosp2.escala, COUNT (sraghosp2.id_unidade) as qtd GROUP BY sraghosp2.id_municip,sraghosp2.co_uni_not,sraghosp2.id_unidade,sraghosp2.escala where sraghosp2.intervalo >= 15 FROM c:\\agrupamento2\\data\\sraghosp2.dbf INTO TABLE scale_M15.dbf";
                     oCmd3a.CommandText = String.Format("SELECT {0}.id_municip,{0}.co_uni_not,{0}.id_unidade,{0}.escala, COUNT ({0}.id_unidade) as qtd GROUP BY {0}.id_municip,{0}.co_uni_not,{0}.id_unidade,{0}.escala where {0}.intervalo >=15 FROM {1} INTO TABLE scale_M15.dbf", cName2, cWay);
                     oCmd3a.ExecuteNonQuery();
                     Console.WriteLine(DateTime.Now + "-OK");
@@ -732,10 +727,9 @@ namespace agrupamento2
                     oCmd4.Dispose();
 
                 }
-
             }
 
-            Console.WriteLine(DateTime.Now + "-Rodando o script converter.exe...");
+            Console.WriteLine(DateTime.Now + "-Rodando o script 'converter.exe'...");
             ProcessStartInfo startInfoConvert = new ProcessStartInfo();
             startInfoConvert.CreateNoWindow = false;
             startInfoConvert.UseShellExecute = true;
@@ -763,6 +757,7 @@ namespace agrupamento2
                 Console.WriteLine(DateTime.Now + "-Fim da execução do script 'converter.exe'.");
             }
 
+            Console.WriteLine(DateTime.Now + "-Convertendo os resultados percentuais para formato csv...");
             System.Diagnostics.Process processCMD2 = new System.Diagnostics.Process();
             System.Diagnostics.ProcessStartInfo startInfoCMD2 = new System.Diagnostics.ProcessStartInfo();
             startInfoCMD2.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
@@ -770,6 +765,15 @@ namespace agrupamento2
             startInfoCMD2.Arguments = "/C cd\\&&cd c:\\agrupamento2\\bin&&sed  -e s/,/;/g c:\\agrupamento2\\tmp\\consolidado_percentual.txt > c:\\agrupamento2\\tmp\\consolidado_percentual.csv";
             processCMD2.StartInfo = startInfoCMD2;
             processCMD2.Start();
+
+            if (!File.Exists(@"C:\agrupamento2\tmp\consolidado_percentual.csv"))
+            {
+                Console.WriteLine(DateTime.Now + "-Erro! Falha ao criar arquivo 'consolidado_percentual.csv'.");
+            }
+            else
+            {
+                Console.WriteLine(DateTime.Now + "-Arquivo 'consolidado_percentual.csv' criado com sucesso.");
+            }
 
             Console.WriteLine(DateTime.Now + "-Convertendo arquivo com os resultados para xlsx...");
             ProcessStartInfo startInfo1 = new ProcessStartInfo();
@@ -794,6 +798,8 @@ namespace agrupamento2
                 Console.WriteLine(DateTime.Now + "-Arquivo 'consolidado_valores.xlsx' criado com sucesso.");
             }
 
+            Console.WriteLine("Pressione qualquer tecla para continuar.");
+            Console.ReadKey();
         }
     }
 }
